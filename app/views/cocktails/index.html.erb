@@ -1,10 +1,9 @@
 <div class="container">
-  <div class="title">
+  <div class ="top_page">
     <h1>Wonderful Cocktails</h1>
+    <%= link_to "Create a new cocktail", new_cocktail_path, class: 'btn btn-primary'%>
   </div>
-</div>
 
-<div class="container">
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
       <%= link_to cocktail_path(cocktail) do %>
@@ -15,7 +14,3 @@
     <% end %>
   </div>
 </div>
-
-<%= link_to "Create a new cocktail", new_cocktail_path, class: 'btn btn-primary'%>
-
-
