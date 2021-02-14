@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <h4>Wonderful Cocktails</h4>
-    <%= link_to "Back to list", cocktails_path, class: 'btn btn-ghost' %>
+    <%= link_to "Home", cocktails_path, class: "nav-link" %>
 </div>
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fill if @cocktail.photo.attached? %>')">
