@@ -1,6 +1,14 @@
-<div class="container">
-  <h2><%= @cocktail.name %></h2>
-  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <h4>Wonderful Cocktails</h4>
+    <%= link_to "Back to list", cocktails_path, class: 'btn btn-ghost' %>
+</div>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fill if @cocktail.photo.attached? %>')">
+  <div class="container">
+    <h1><%= @cocktail.name %></h1>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
 
   <ul>
     <% @cocktail.doses.each do |dose| %>
@@ -13,9 +21,14 @@
       </li>
     <% end %>
   </ul>
-  <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: 'btn btn-primary'%>
-  <hr>
-  <%= link_to "Back to list", cocktails_path %>
 </div>
 
-<%= console %>
+
+<div class="container">
+  <h3>Add an ingredient</h3>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+  <% end %>
+</div>

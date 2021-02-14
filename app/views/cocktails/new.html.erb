@@ -1,9 +1,18 @@
-<div class="container">
-  <h2>Create a new cocktail</h2>
-  <%= simple_form_for @cocktail do |f| %>
-    <%= f.input :name %>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit %>
-  <% end %>
+<div class="main-new-page">
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <h4>Wonderful Cocktails</h4>
+    <%= link_to "Home", cocktails_path, class: "nav-link" %>
+  </div>
+
+  <div class="container" id="new-cocktail">
+    <h2>Create a new cocktail</h2>
+      <%= simple_form_for @cocktail do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, class: "button" %>
+    <% end %>
+  </div>
 </div>
+
+
 
